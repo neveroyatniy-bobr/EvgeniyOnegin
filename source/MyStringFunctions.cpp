@@ -298,7 +298,6 @@ char* MyFGetS(char *str, int n, FILE *stream) {
 }
 
 size_t MyGetLine(char** lineptr, size_t* n, FILE* stream) {
-    assert(lineptr != NULL);
     assert(stream != NULL);
     assert(n != NULL);
 
@@ -337,8 +336,16 @@ size_t MyGetLine(char** lineptr, size_t* n, FILE* stream) {
         current_ch = fgetc(stream);
     }
 
-    (linestr)[cnt] = '\0';
-    cnt++;
+    if (cnt > 0) {
+        linestr[cnt] = '\0';
+        cnt++;
+    }
+    else {
+        if (current_ch != -1) {
+            linestr[cnt] = '\0';
+            cnt++;
+        }
+    }
 
     *n = size;
     *lineptr = linestr;

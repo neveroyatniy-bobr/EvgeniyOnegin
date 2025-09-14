@@ -20,4 +20,16 @@ void* VoidPtrMove(void* ptr, size_t n, size_t size);
 /// @param comp Компаратор
 void MyQSort(void* array, size_t len, size_t size, Comparator comp);
 
+/// @brief Компаратор для интов
+/// @param val1 val1
+/// @param val2 val2
+/// @return -, если val1 < val2, 0, если val1 == val2, иначе +
+int int_comp(const void* val1, const void* val2);
+
+/// @brief Компаратор для строк
+/// @param val1 val1
+/// @param val2 val2
+/// @return -, если val1 < val2, 0, если val1 == val2, иначе +
+int str_comp(const void* val1, const void* val2);
+
 #endif // MY_SORT_H_

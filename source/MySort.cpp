@@ -3,6 +3,8 @@
 #include <memory.h>
 #include <stdio.h>
 
+#include "MyStringFunctions.h"
+
 void* VoidPtrMove(void* ptr, size_t n, size_t size) {
     return (void*)((size_t)ptr + n * size);
 }
@@ -57,4 +59,45 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
         
         free(start_merge_array);
     }
+}
+
+int int_comp(const void* val1, const void* val2) {
+    return *((const int*)val1) - *((const int*)val2);
+}
+
+int str_comp(const void* val1, const void* val2) {
+    char* str1 = *((char**)val1);
+    char* str2 = *((char**)val2);
+
+    int len1 = (int)MyStrLen(str1);
+    int len2 = (int)MyStrLen(str2);
+
+    //fprintf(stderr, "(%s)len1 = %d, (%s)len2 = %d, len1 - len2 = %d\n", str1, len1, str2, len2, len1 - len2);
+
+    const char* str1_start = str1;
+    const char* str2_start = str2;
+
+    str1 = str1 + len1;
+    str2 = str2 + len2;
+
+    while (*str1 == *str2 && str1 != str1_start  && str2 != str2_start) {
+        str1--;
+        str2--;
+    }
+
+    if (str1 == str1_start xor str2 == str2_start) {
+        if (str1 == str1_start) {
+            return -1;
+        }
+        else {
+            return 1;
+        }
+    }
+    
+    int signed_ans = *str1 - *str2;
+    int sign = (signed_ans == 0) 
+                    ? 0 
+                    : signed_ans / abs(signed_ans);
+    
+    return sign;
 }

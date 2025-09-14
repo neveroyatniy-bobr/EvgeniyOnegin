@@ -119,6 +119,12 @@ Functions</h2></td></tr>
 <tr class="memitem:af2ba95e9ba5ab7031ec0f87418ae3b5e" id="r_af2ba95e9ba5ab7031ec0f87418ae3b5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MySort_8h.html#af2ba95e9ba5ab7031ec0f87418ae3b5e">MyQSort</a> (void *array, size_t len, size_t size, <a class="el" href="MySort_8h.html#aa256c10c408d3241a0dec0829f649ddd">Comparator</a> comp)</td></tr>
 <tr class="memdesc:af2ba95e9ba5ab7031ec0f87418ae3b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сортирует массив используя компаратор  <br /></td></tr>
 <tr class="separator:af2ba95e9ba5ab7031ec0f87418ae3b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3905a7667f216efe4c4254012e82dc3" id="r_af3905a7667f216efe4c4254012e82dc3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MySort_8h.html#af3905a7667f216efe4c4254012e82dc3">int_comp</a> (const void *val1, const void *val2)</td></tr>
+<tr class="memdesc:af3905a7667f216efe4c4254012e82dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Компаратор для интов  <br /></td></tr>
+<tr class="separator:af3905a7667f216efe4c4254012e82dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93065bab8acb3f0b594b76d289840584" id="r_a93065bab8acb3f0b594b76d289840584"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MySort_8h.html#a93065bab8acb3f0b594b76d289840584">str_comp</a> (const void *val1, const void *val2)</td></tr>
+<tr class="memdesc:a93065bab8acb3f0b594b76d289840584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Компаратор для строк  <br /></td></tr>
+<tr class="separator:a93065bab8acb3f0b594b76d289840584"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="aa256c10c408d3241a0dec0829f649ddd" name="aa256c10c408d3241a0dec0829f649ddd"></a>
@@ -138,6 +144,44 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="af3905a7667f216efe4c4254012e82dc3" name="af3905a7667f216efe4c4254012e82dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3905a7667f216efe4c4254012e82dc3">&#9670;&#160;</a></span>int_comp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int int_comp </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>val1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>val2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Компаратор для интов </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val1</td><td>val1 </td></tr>
+    <tr><td class="paramname">val2</td><td>val2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>-, если val1 &lt; val2, 0, если val1 == val2, иначе + </dd></dl>
+
+</div>
+</div>
 <a id="af2ba95e9ba5ab7031ec0f87418ae3b5e" name="af2ba95e9ba5ab7031ec0f87418ae3b5e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2ba95e9ba5ab7031ec0f87418ae3b5e">&#9670;&#160;</a></span>MyQSort()</h2>
 
@@ -186,6 +230,44 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a93065bab8acb3f0b594b76d289840584" name="a93065bab8acb3f0b594b76d289840584"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93065bab8acb3f0b594b76d289840584">&#9670;&#160;</a></span>str_comp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int str_comp </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>val1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>val2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Компаратор для строк </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val1</td><td>val1 </td></tr>
+    <tr><td class="paramname">val2</td><td>val2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>-, если val1 &lt; val2, 0, если val1 == val2, иначе + </dd></dl>
 
 </div>
 </div>

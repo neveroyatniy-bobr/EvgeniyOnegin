@@ -31,9 +31,13 @@ var menudata={children:[
 {text:"c",url:"globals.html#index_c"},
 {text:"i",url:"globals.html#index_i"},
 {text:"m",url:"globals.html#index_m"},
+{text:"s",url:"globals.html#index_s"},
+{text:"t",url:"globals.html#index_t"},
 {text:"v",url:"globals.html#index_v"}]},
 {text:"Functions",url:"globals_func.html",children:[
 {text:"i",url:"globals_func.html#index_i"},
 {text:"m",url:"globals_func.html#index_m"},
+{text:"s",url:"globals_func.html#index_s"},
+{text:"t",url:"globals_func.html#index_t"},
 {text:"v",url:"globals_func.html#index_v"}]},
 {text:"Typedefs",url:"globals_type.html"}]}]}]}
