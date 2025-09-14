@@ -86,10 +86,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keywordtype">size_t</span> <a class="code hl_function" href="TextParser_8h.html#a6121130d352963b7b15b2d0acc4b7b72">TextParse</a>(<span class="keywordtype">char</span>*** text, <span class="keyword">const</span> <span class="keywordtype">char</span>* filename);</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#endif </span><span class="comment">// TEXT_PARSER_H_</span></div>
-<div class="ttc" id="aTextParser_8h_html_a6121130d352963b7b15b2d0acc4b7b72"><div class="ttname"><a href="TextParser_8h.html#a6121130d352963b7b15b2d0acc4b7b72">TextParse</a></div><div class="ttdeci">size_t TextParse(char ***text, const char *filename)</div><div class="ttdef"><b>Definition</b> TextParser.cpp:8</div></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keywordtype">size_t</span> <a class="code hl_function" href="TextParser_8h.html#a44a76e8a32c23d8bbd6cef29c5401b2a">TextParse</a>(<span class="keywordtype">char</span>*** text, <span class="keyword">const</span> <span class="keywordtype">char</span>* input_file_name);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">void</span> <a class="code hl_function" href="TextParser_8h.html#aea252d6d6334ff312e6a06e67f93494d">MemoryFree</a>(<span class="keywordtype">char</span>** text, <span class="keywordtype">size_t</span> len);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif </span><span class="comment">// TEXT_PARSER_H_</span></div>
+<div class="ttc" id="aTextParser_8h_html_a44a76e8a32c23d8bbd6cef29c5401b2a"><div class="ttname"><a href="TextParser_8h.html#a44a76e8a32c23d8bbd6cef29c5401b2a">TextParse</a></div><div class="ttdeci">size_t TextParse(char ***text, const char *input_file_name)</div><div class="ttdoc">Парсит входной файл в массив строк. Обязательно Освободить память выделенную для указателей на элемен...</div><div class="ttdef"><b>Definition</b> TextParser.cpp:8</div></div>
+<div class="ttc" id="aTextParser_8h_html_aea252d6d6334ff312e6a06e67f93494d"><div class="ttname"><a href="TextParser_8h.html#aea252d6d6334ff312e6a06e67f93494d">MemoryFree</a></div><div class="ttdeci">void MemoryFree(char **text, size_t len)</div><div class="ttdoc">Освобождает память, выделенную под массив строк.</div><div class="ttdef"><b>Definition</b> TextParser.cpp:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

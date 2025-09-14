@@ -2,14 +2,21 @@
 
 #include <memory.h>
 #include <stdio.h>
+#include <assert.h>
 
 #include "MyStringFunctions.h"
 
 void* VoidPtrMove(void* ptr, size_t n, size_t size) {
+    assert(size != NULL);
+
     return (void*)((size_t)ptr + n * size);
 }
 
 void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
+    assert(array != NULL);
+    assert(len != 0);
+    assert(size != 0);
+
     if (len == 1) {
         return;
     }
@@ -62,17 +69,21 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
 }
 
 int int_comp(const void* val1, const void* val2) {
+    assert(val1 != 0);
+    assert(val2 != 0);
+
     return *((const int*)val1) - *((const int*)val2);
 }
 
 int str_comp(const void* val1, const void* val2) {
+    assert(val1 != 0);
+    assert(val2 != 0);
+
     char* str1 = *((char**)val1);
     char* str2 = *((char**)val2);
 
     int len1 = (int)MyStrLen(str1);
     int len2 = (int)MyStrLen(str2);
-
-    //fprintf(stderr, "(%s)len1 = %d, (%s)len2 = %d, len1 - len2 = %d\n", str1, len1, str2, len2, len1 - len2);
 
     const char* str1_start = str1;
     const char* str2_start = str2;

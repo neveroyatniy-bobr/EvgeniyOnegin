@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['voidptrmove_0',['voidptrmove',['../MySort_8h.html#a21323fe6788ac934bdbe65d958872441',1,'VoidPtrMove(void *ptr, size_t n, size_t size):&#160;MySort.cpp'],['../MySort_8cpp.html#a21323fe6788ac934bdbe65d958872441',1,'VoidPtrMove(void *ptr, size_t n, size_t size):&#160;MySort.cpp']]]
+  ['textparse_0',['textparse',['../TextParser_8h.html#a44a76e8a32c23d8bbd6cef29c5401b2a',1,'TextParse(char ***text, const char *input_file_name):&#160;TextParser.cpp'],['../TextParser_8cpp.html#a44a76e8a32c23d8bbd6cef29c5401b2a',1,'TextParse(char ***text, const char *input_file_name):&#160;TextParser.cpp']]]
 ];

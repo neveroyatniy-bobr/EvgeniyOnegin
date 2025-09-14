@@ -6,45 +6,22 @@
 #include "MySort.h"
 #include "TextParser.h"
 #include "MyStringFunctions.h"
+#include "FileOutput.h"
 
 int main() {
-    setlocale(LC_ALL, "Russian");
-
     char** text = NULL;
+    const char* inoutput_file_name = "./data/EngEvgeniyOnegin.txt";
+    const char* output_file_name = "./out/output.txt";
 
-    size_t len = TextParse(&text, "./data/EngEvgeniyOnegin.txt");
-    //size_t len = TextParse(&text, "./data/test.txt");
-
+    size_t len = TextParse(&text, inoutput_file_name);
     if (len == 0) { return 1; }
 
-    printf("Parsed!\n");
-
-    printf("len = %lld\n", len);
-
     qsort(text, len, sizeof(text[0]), str_comp);
-
     printf("Sorted!\n");
 
-    
-    const char* output_file_name = "./out/output.txt";
-    FILE* output_file = fopen(output_file_name, "w");
+    FileOutput(output_file_name, text, len);
 
-    for (size_t i = 0; i < len; i++) {
-        if (text[i] != NULL) {
-            fprintf(output_file, "%s\n", text[i]);
-        }
-    }
+    MemoryFree(text, len);
 
-    fclose(output_file);
-
-    printf("Puted!\n");
-
-    for (int i = 0; i < len; i++) {
-        free(text[i]);
-    }
-
-    free(text);
-
-    printf("Memory free!\nc");
     return 0;
 }

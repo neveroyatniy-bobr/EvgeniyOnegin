@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>program: include/TextParser.h File Reference</title>
+<title>program: include/FileOutput.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,54 +75,57 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">TextParser.h File Reference</div></div>
+  <div class="headertitle"><div class="title">FileOutput.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for TextParser.h:</div>
+Include dependency graph for FileOutput.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="TextParser_8h__incl.png" border="0" usemap="#ainclude_2TextParser_8h" alt=""/></div>
-<map name="ainclude_2TextParser_8h" id="ainclude_2TextParser_8h">
-<area shape="rect" title=" " alt="" coords="5,5,156,31"/>
-<area shape="rect" title=" " alt="" coords="45,79,116,104"/>
-<area shape="poly" title=" " alt="" coords="83,31,83,65,78,65,78,31"/>
+<div class="center"><img src="FileOutput_8h__incl.png" border="0" usemap="#ainclude_2FileOutput_8h" alt=""/></div>
+<map name="ainclude_2FileOutput_8h" id="ainclude_2FileOutput_8h">
+<area shape="rect" title=" " alt="" coords="5,5,157,31"/>
+<area shape="rect" title=" " alt="" coords="46,79,117,104"/>
+<area shape="poly" title=" " alt="" coords="84,31,84,65,79,65,79,31"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="TextParser_8h__dep__incl.png" border="0" usemap="#ainclude_2TextParser_8hdep" alt=""/></div>
-<map name="ainclude_2TextParser_8hdep" id="ainclude_2TextParser_8hdep">
-<area shape="rect" title=" " alt="" coords="45,5,195,31"/>
+<div class="center"><img src="FileOutput_8h__dep__incl.png" border="0" usemap="#ainclude_2FileOutput_8hdep" alt=""/></div>
+<map name="ainclude_2FileOutput_8hdep" id="ainclude_2FileOutput_8hdep">
+<area shape="rect" title=" " alt="" coords="44,5,196,31"/>
 <area shape="rect" href="main_8cpp.html" title=" " alt="" coords="5,79,88,104"/>
 <area shape="poly" title=" " alt="" coords="100,42,60,80,57,77,96,38"/>
-<area shape="rect" href="TextParser_8cpp.html" title=" " alt="" coords="112,79,275,104"/>
+<area shape="rect" href="FileOutput_8cpp.html" title=" " alt="" coords="112,79,275,104"/>
 <area shape="poly" title=" " alt="" coords="144,38,183,77,180,80,140,42"/>
 </map>
 </div>
 </div>
-<p><a href="TextParser_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="FileOutput_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a44a76e8a32c23d8bbd6cef29c5401b2a" id="r_a44a76e8a32c23d8bbd6cef29c5401b2a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TextParser_8h.html#a44a76e8a32c23d8bbd6cef29c5401b2a">TextParse</a> (char ***text, const char *input_file_name)</td></tr>
-<tr class="memdesc:a44a76e8a32c23d8bbd6cef29c5401b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Парсит входной файл в массив строк. Обязательно Освободить память выделенную для указателей на элементы и сами элементы  <br /></td></tr>
-<tr class="separator:a44a76e8a32c23d8bbd6cef29c5401b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea252d6d6334ff312e6a06e67f93494d" id="r_aea252d6d6334ff312e6a06e67f93494d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TextParser_8h.html#aea252d6d6334ff312e6a06e67f93494d">MemoryFree</a> (char **text, size_t len)</td></tr>
-<tr class="memdesc:aea252d6d6334ff312e6a06e67f93494d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Освобождает память, выделенную под массив строк.  <br /></td></tr>
-<tr class="separator:aea252d6d6334ff312e6a06e67f93494d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4497fc5d022588313f02f4f0b36621b" id="r_ae4497fc5d022588313f02f4f0b36621b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FileOutput_8h.html#ae4497fc5d022588313f02f4f0b36621b">FileOutput</a> (const char *output_file_name, char **text, size_t len)</td></tr>
+<tr class="memdesc:ae4497fc5d022588313f02f4f0b36621b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выоводит содержимое массива строк в выходной файл  <br /></td></tr>
+<tr class="separator:ae4497fc5d022588313f02f4f0b36621b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aea252d6d6334ff312e6a06e67f93494d" name="aea252d6d6334ff312e6a06e67f93494d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea252d6d6334ff312e6a06e67f93494d">&#9670;&#160;</a></span>MemoryFree()</h2>
+<a id="ae4497fc5d022588313f02f4f0b36621b" name="ae4497fc5d022588313f02f4f0b36621b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4497fc5d022588313f02f4f0b36621b">&#9670;&#160;</a></span>FileOutput()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MemoryFree </td>
+          <td class="memname">int FileOutput </td>
           <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>output_file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">char **&#160;</td>
           <td class="paramname"><em>text</em>, </td>
         </tr>
@@ -140,52 +143,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Освобождает память, выделенную под массив строк. </p>
+<p>Выоводит содержимое массива строк в выходной файл </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">output_file_name</td><td>Путь к выходному файлу </td></tr>
     <tr><td class="paramname">text</td><td>Массив строк </td></tr>
     <tr><td class="paramname">len</td><td>Количество строк </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a44a76e8a32c23d8bbd6cef29c5401b2a" name="a44a76e8a32c23d8bbd6cef29c5401b2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44a76e8a32c23d8bbd6cef29c5401b2a">&#9670;&#160;</a></span>TextParse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t TextParse </td>
-          <td>(</td>
-          <td class="paramtype">char ***&#160;</td>
-          <td class="paramname"><em>text</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>input_file_name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Парсит входной файл в массив строк. Обязательно Освободить память выделенную для указателей на элементы и сами элементы </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">text</td><td>Указатель на массив строк </td></tr>
-    <tr><td class="paramname">input_file_name</td><td>Путь к входному файлу </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Количество строк в входном файле </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1, если не удалось открыть файл, 0 в случае успешного считывания </dd></dl>
 
 </div>
 </div>

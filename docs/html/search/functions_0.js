@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['int_5fcomp_0',['int_comp',['../MySort_8h.html#af3905a7667f216efe4c4254012e82dc3',1,'int_comp(const void *val1, const void *val2):&#160;MySort.cpp'],['../MySort_8cpp.html#af3905a7667f216efe4c4254012e82dc3',1,'int_comp(const void *val1, const void *val2):&#160;MySort.cpp']]]
+  ['fileoutput_0',['fileoutput',['../FileOutput_8h.html#ae4497fc5d022588313f02f4f0b36621b',1,'FileOutput(const char *output_file_name, char **text, size_t len):&#160;FileOutput.cpp'],['../FileOutput_8cpp.html#ae4497fc5d022588313f02f4f0b36621b',1,'FileOutput(const char *output_file_name, char **text, size_t len):&#160;FileOutput.cpp']]]
 ];
