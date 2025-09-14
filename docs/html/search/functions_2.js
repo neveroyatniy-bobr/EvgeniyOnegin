@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['main_0',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.cpp']]],
   ['memoryfree_1',['memoryfree',['../TextParser_8h.html#aea252d6d6334ff312e6a06e67f93494d',1,'MemoryFree(char **text, size_t len):&#160;TextParser.cpp'],['../TextParser_8cpp.html#aea252d6d6334ff312e6a06e67f93494d',1,'MemoryFree(char **text, size_t len):&#160;TextParser.cpp']]],
   ['myatoi_2',['myatoi',['../MyStringFunctions_8h.html#ae3d7c2c4fa54c31aa877e597956c2b86',1,'MyAToI(const char *nptr):&#160;MyStringFunctions.cpp'],['../MyStringFunctions_8cpp.html#ae3d7c2c4fa54c31aa877e597956c2b86',1,'MyAToI(const char *nptr):&#160;MyStringFunctions.cpp']]],
   ['myclamp_3',['myclamp',['../MyStringFunctions_8h.html#ad2fcc2ea65169dbb12ef912c925ac1e1',1,'MyClamp(int n, int n_min, int n_max):&#160;MyStringFunctions.cpp'],['../MyStringFunctions_8cpp.html#ad2fcc2ea65169dbb12ef912c925ac1e1',1,'MyClamp(int n, int n_min, int n_max):&#160;MyStringFunctions.cpp']]],

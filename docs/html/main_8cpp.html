@@ -75,51 +75,50 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
-<code>#include &lt;locale.h&gt;</code><br />
-<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;getopt.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="MySort_8h_source.html">MySort.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="TextParser_8h_source.html">TextParser.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="MyStringFunctions_8h_source.html">MyStringFunctions.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="FileOutput_8h_source.html">FileOutput.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Options_8h_source.html">Options.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#amain_8cpp" alt=""/></div>
 <map name="amain_8cpp" id="amain_8cpp">
-<area shape="rect" title=" " alt="" coords="280,5,362,31"/>
-<area shape="rect" title=" " alt="" coords="156,152,222,177"/>
-<area shape="poly" title=" " alt="" coords="280,24,211,29,131,39,60,56,33,67,16,80,9,95,11,108,23,120,41,130,90,145,143,155,142,160,89,151,39,135,19,124,7,111,3,95,12,77,31,63,58,51,130,34,210,24,279,18"/>
-<area shape="rect" title=" " alt="" coords="27,79,98,104"/>
-<area shape="poly" title=" " alt="" coords="280,33,112,79,110,74,279,28"/>
-<area shape="rect" title=" " alt="" coords="122,79,195,104"/>
-<area shape="poly" title=" " alt="" coords="296,33,199,75,197,71,294,28"/>
-<area shape="rect" title=" " alt="" coords="219,79,287,104"/>
-<area shape="poly" title=" " alt="" coords="312,33,276,70,272,67,308,29"/>
-<area shape="rect" href="MySort_8h.html" title=" " alt="" coords="490,79,570,104"/>
-<area shape="poly" title=" " alt="" coords="355,28,484,72,482,77,354,33"/>
-<area shape="rect" href="TextParser_8h.html" title=" " alt="" coords="595,79,695,104"/>
-<area shape="poly" title=" " alt="" coords="363,26,582,74,581,79,362,31"/>
-<area shape="rect" href="MyStringFunctions_8h.html" title=" " alt="" coords="312,79,466,104"/>
-<area shape="poly" title=" " alt="" coords="334,29,370,67,366,70,330,33"/>
-<area shape="rect" href="FileOutput_8h.html" title=" " alt="" coords="720,79,821,104"/>
-<area shape="poly" title=" " alt="" coords="363,23,706,76,706,81,362,28"/>
-<area shape="rect" title=" " alt="" coords="610,152,680,177"/>
-<area shape="poly" title=" " alt="" coords="550,102,616,142,613,147,547,106"/>
-<area shape="poly" title=" " alt="" coords="648,104,648,138,642,138,642,104"/>
-<area shape="poly" title=" " alt="" coords="358,107,236,150,234,145,356,102"/>
-<area shape="poly" title=" " alt="" coords="752,106,679,147,676,143,749,102"/>
+<area shape="rect" title=" " alt="" coords="255,5,338,31"/>
+<area shape="rect" title=" " alt="" coords="11,152,78,177"/>
+<area shape="poly" title=" " alt="" coords="255,24,191,30,119,41,54,57,30,68,14,80,9,94,10,109,27,140,22,142,5,111,3,93,10,77,27,64,52,52,118,36,191,25,255,19"/>
+<area shape="rect" title=" " alt="" coords="218,152,294,177"/>
+<area shape="poly" title=" " alt="" coords="282,33,261,53,244,80,241,94,241,109,248,139,243,140,236,110,235,94,239,78,257,50,278,29"/>
+<area shape="rect" href="MySort_8h.html" title=" " alt="" coords="363,79,443,104"/>
+<area shape="poly" title=" " alt="" coords="315,28,376,69,373,73,312,33"/>
+<area shape="rect" href="TextParser_8h.html" title=" " alt="" coords="468,79,568,104"/>
+<area shape="poly" title=" " alt="" coords="333,28,470,72,468,77,331,33"/>
+<area shape="rect" href="MyStringFunctions_8h.html" title=" " alt="" coords="24,79,179,104"/>
+<area shape="poly" title=" " alt="" coords="266,33,147,76,145,71,264,28"/>
+<area shape="rect" href="FileOutput_8h.html" title=" " alt="" coords="592,79,694,104"/>
+<area shape="poly" title=" " alt="" coords="338,25,579,74,578,80,337,30"/>
+<area shape="rect" href="Options_8h.html" title=" " alt="" coords="254,79,338,104"/>
+<area shape="poly" title=" " alt="" coords="299,31,299,65,294,65,294,31"/>
+<area shape="rect" title=" " alt="" coords="425,152,496,177"/>
+<area shape="poly" title=" " alt="" coords="414,103,444,139,440,143,410,106"/>
+<area shape="poly" title=" " alt="" coords="510,106,480,143,476,139,506,103"/>
+<area shape="poly" title=" " alt="" coords="94,106,64,143,60,139,90,103"/>
+<area shape="poly" title=" " alt="" coords="614,107,504,149,502,144,613,102"/>
+<area shape="poly" title=" " alt="" coords="292,106,272,141,267,139,287,103"/>
+<area shape="poly" title=" " alt="" coords="324,102,422,144,420,149,321,106"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627" id="r_a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
+<a id="a3c04138a5bfe5d72780bb7e82a18e627" name="a3c04138a5bfe5d72780bb7e82a18e627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&#160;</a></span>main()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,8 +126,19 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int main </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

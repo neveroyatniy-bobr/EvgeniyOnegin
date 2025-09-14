@@ -23,7 +23,5 @@ int FileOutput(const char* output_file_name, char** text, size_t len) {
 
     fclose(output_file);
 
-    printf("Puted!\n");
-
     return 0;
 }

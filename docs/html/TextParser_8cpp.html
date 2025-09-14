@@ -81,31 +81,34 @@ $(function() {
 <div class="textblock"><code>#include &quot;<a class="el" href="TextParser_8h_source.html">TextParser.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="MyStringFunctions_8h_source.html">MyStringFunctions.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for TextParser.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="TextParser_8cpp__incl.png" border="0" usemap="#asource_2TextParser_8cpp" alt=""/></div>
 <map name="asource_2TextParser_8cpp" id="asource_2TextParser_8cpp">
-<area shape="rect" title=" " alt="" coords="87,5,250,31"/>
+<area shape="rect" title=" " alt="" coords="113,5,275,31"/>
 <area shape="rect" href="TextParser_8h.html" title=" " alt="" coords="5,79,105,104"/>
-<area shape="poly" title=" " alt="" coords="152,33,87,74,84,69,149,28"/>
+<area shape="poly" title=" " alt="" coords="173,33,91,75,89,70,171,28"/>
 <area shape="rect" title=" " alt="" coords="75,152,145,177"/>
-<area shape="poly" title=" " alt="" coords="166,32,122,140,117,138,161,30"/>
+<area shape="poly" title=" " alt="" coords="189,32,126,141,121,139,185,30"/>
 <area shape="rect" title=" " alt="" coords="193,152,259,177"/>
-<area shape="poly" title=" " alt="" coords="176,30,219,138,214,140,171,32"/>
-<area shape="rect" href="MyStringFunctions_8h.html" title=" " alt="" coords="231,79,386,104"/>
-<area shape="poly" title=" " alt="" coords="192,28,275,70,273,75,190,33"/>
+<area shape="poly" title=" " alt="" coords="199,31,223,138,218,139,194,32"/>
+<area shape="rect" title=" " alt="" coords="231,79,306,104"/>
+<area shape="poly" title=" " alt="" coords="208,29,248,67,245,71,204,33"/>
+<area shape="rect" href="MyStringFunctions_8h.html" title=" " alt="" coords="330,79,485,104"/>
+<area shape="poly" title=" " alt="" coords="229,28,361,72,359,77,227,33"/>
 <area shape="poly" title=" " alt="" coords="66,103,95,140,91,143,62,106"/>
-<area shape="poly" title=" " alt="" coords="297,106,252,145,248,141,294,102"/>
+<area shape="poly" title=" " alt="" coords="379,107,269,149,267,144,377,102"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a44a76e8a32c23d8bbd6cef29c5401b2a" id="r_a44a76e8a32c23d8bbd6cef29c5401b2a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TextParser_8cpp.html#a44a76e8a32c23d8bbd6cef29c5401b2a">TextParse</a> (char ***text, const char *input_file_name)</td></tr>
-<tr class="memdesc:a44a76e8a32c23d8bbd6cef29c5401b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Парсит входной файл в массив строк. Обязательно Освободить память выделенную для указателей на элементы и сами элементы  <br /></td></tr>
-<tr class="separator:a44a76e8a32c23d8bbd6cef29c5401b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aa04bb01a616514513c89f7b730f4bc" id="r_a8aa04bb01a616514513c89f7b730f4bc"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TextParser_8cpp.html#a8aa04bb01a616514513c89f7b730f4bc">TextParse</a> (char ***text_ptr, const char *input_file_name)</td></tr>
+<tr class="memdesc:a8aa04bb01a616514513c89f7b730f4bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Парсит входной файл в массив строк. Обязательно Освободить память выделенную для указателей на элементы и сами элементы  <br /></td></tr>
+<tr class="separator:a8aa04bb01a616514513c89f7b730f4bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea252d6d6334ff312e6a06e67f93494d" id="r_aea252d6d6334ff312e6a06e67f93494d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TextParser_8cpp.html#aea252d6d6334ff312e6a06e67f93494d">MemoryFree</a> (char **text, size_t len)</td></tr>
 <tr class="memdesc:aea252d6d6334ff312e6a06e67f93494d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Освобождает память, выделенную под массив строк.  <br /></td></tr>
 <tr class="separator:aea252d6d6334ff312e6a06e67f93494d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,8 +151,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a44a76e8a32c23d8bbd6cef29c5401b2a" name="a44a76e8a32c23d8bbd6cef29c5401b2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44a76e8a32c23d8bbd6cef29c5401b2a">&#9670;&#160;</a></span>TextParse()</h2>
+<a id="a8aa04bb01a616514513c89f7b730f4bc" name="a8aa04bb01a616514513c89f7b730f4bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aa04bb01a616514513c89f7b730f4bc">&#9670;&#160;</a></span>TextParse()</h2>
 
 <div class="memitem">
 <div class="memproto">

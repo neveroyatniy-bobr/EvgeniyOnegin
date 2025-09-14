@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>program: include/TextParser.h Source File</title>
+<title>program: include/Options.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,21 +78,21 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">TextParser.h</div></div>
+  <div class="headertitle"><div class="title">Options.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="TextParser_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TEXT_PARSER_H_</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TEXT_PARSER_H_</span></div>
+<a href="Options_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef OPTIONS_H_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define OPTIONS_H_</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keywordtype">size_t</span> <a class="code hl_function" href="TextParser_8h.html#a44a76e8a32c23d8bbd6cef29c5401b2a">TextParse</a>(<span class="keywordtype">char</span>*** text, <span class="keyword">const</span> <span class="keywordtype">char</span>* input_file_name);</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;getopt.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">static</span> option long_options[] = {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    { .name = <span class="stringliteral">&quot;file&quot;</span>, .has_arg = required_argument, .flag = NULL, <span class="charliteral">&#39;f&#39;</span> },</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    { .name = <span class="stringliteral">&quot;help&quot;</span>, .has_arg = no_argument, .flag = NULL, <span class="charliteral">&#39;h&#39;</span> }</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>};</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">void</span> <a class="code hl_function" href="TextParser_8h.html#aea252d6d6334ff312e6a06e67f93494d">MemoryFree</a>(<span class="keywordtype">char</span>** text, <span class="keywordtype">size_t</span> len);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif </span><span class="comment">// TEXT_PARSER_H_</span></div>
-<div class="ttc" id="aTextParser_8h_html_a44a76e8a32c23d8bbd6cef29c5401b2a"><div class="ttname"><a href="TextParser_8h.html#a44a76e8a32c23d8bbd6cef29c5401b2a">TextParse</a></div><div class="ttdeci">size_t TextParse(char ***text, const char *input_file_name)</div><div class="ttdoc">Парсит входной файл в массив строк. Обязательно Освободить память выделенную для указателей на элемен...</div><div class="ttdef"><b>Definition</b> TextParser.cpp:9</div></div>
-<div class="ttc" id="aTextParser_8h_html_aea252d6d6334ff312e6a06e67f93494d"><div class="ttname"><a href="TextParser_8h.html#aea252d6d6334ff312e6a06e67f93494d">MemoryFree</a></div><div class="ttdeci">void MemoryFree(char **text, size_t len)</div><div class="ttdoc">Освобождает память, выделенную под массив строк.</div><div class="ttdef"><b>Definition</b> TextParser.cpp:48</div></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#endif </span><span class="comment">// OPTIONS_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

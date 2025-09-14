@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['textparse_0',['textparse',['../TextParser_8h.html#a44a76e8a32c23d8bbd6cef29c5401b2a',1,'TextParse(char ***text, const char *input_file_name):&#160;TextParser.cpp'],['../TextParser_8cpp.html#a44a76e8a32c23d8bbd6cef29c5401b2a',1,'TextParse(char ***text, const char *input_file_name):&#160;TextParser.cpp']]],
-  ['textparser_2ecpp_1',['TextParser.cpp',['../TextParser_8cpp.html',1,'']]],
-  ['textparser_2eh_2',['TextParser.h',['../TextParser_8h.html',1,'']]]
+  ['str_5fcomp_0',['str_comp',['../MySort_8h.html#a93065bab8acb3f0b594b76d289840584',1,'str_comp(const void *val1, const void *val2):&#160;MySort.cpp'],['../MySort_8cpp.html#a93065bab8acb3f0b594b76d289840584',1,'str_comp(const void *val1, const void *val2):&#160;MySort.cpp']]]
 ];

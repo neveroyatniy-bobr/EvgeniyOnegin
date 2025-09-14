@@ -13,7 +13,7 @@ size_t TextParse(char*** text_ptr, const char* input_file_name) {
     FILE* input_file = fopen(input_file_name, "r");
 
     if (input_file == NULL) {
-        printf("Не удалось открыть файл: %s\n", input_file_name);
+        fprintf(stderr, "Не удалось открыть файл: %s\n", input_file_name);
         return 0;
     }
 
@@ -42,8 +42,6 @@ size_t TextParse(char*** text_ptr, const char* input_file_name) {
 
     fclose(input_file);
 
-    printf("Parsed!\n");
-
     return cnt;
 }
 
@@ -57,6 +55,4 @@ void MemoryFree(char** text, size_t len) {
     }
 
     free(text);
-
-    printf("Memory free!\nc");
 }
