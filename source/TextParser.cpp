@@ -50,7 +50,6 @@ void MemoryFree(char** text, size_t len) {
     assert(len != 0);
 
     for (size_t i = 0; i < len; i++) {
-        assert(text[i] != 0);
         free(text[i]);
     }
 
