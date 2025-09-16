@@ -8,8 +8,8 @@ int FileOutput(const char* output_file_name, char** text, size_t len) {
     assert(text != NULL);
     assert(len != 0);
 
+    // FIXME perror
     FILE* output_file = fopen(output_file_name, "w");
-
     if (output_file == NULL) {
         fprintf(stderr, "Не удалось открыть файл: %s\n", output_file_name);
         return 0;
