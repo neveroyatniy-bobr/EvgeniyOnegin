@@ -1,6 +1,10 @@
 #include "MyVector.h"
 
+#include <assert.h>
+
 void MyVectorInit(MyVector* vector, size_t capacity) {
+    assert(vector != NULL);
+
     vector->capacity = capacity >= MIN_CAPACITY ? capacity : MIN_CAPACITY;
 
     vector->size = 0;
@@ -10,11 +14,15 @@ void MyVectorInit(MyVector* vector, size_t capacity) {
 }
 
 void MyVectorRealloc(MyVector* vector) {
+    assert(vector != NULL);
+
     vector->data = (char**)realloc(vector->data, vector->capacity * GROW_FACTOR * sizeof(*(vector->data)));
     vector->capacity *= GROW_FACTOR;
 }
 
 void MyVectorFree(MyVector* vector) {
+    assert(vector != NULL);
+
     free(vector->data);
     
     vector->capacity = 0;
@@ -23,6 +31,9 @@ void MyVectorFree(MyVector* vector) {
 }
 
 void MyVectorAdd(MyVector* vector, char* elem) {
+    assert(vector != NULL);
+    assert(elem != NULL);
+
     if (vector->size == vector->capacity) {
         MyVectorRealloc(vector);
     }
