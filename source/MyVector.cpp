@@ -9,8 +9,7 @@ void MyVectorInit(MyVector* vector, size_t capacity) {
 
     vector->size = 0;
 
-    char** data = (char**)calloc(capacity, sizeof(char*));
-    vector->data = data;
+    vector->data = (char**)calloc(capacity, sizeof(char*));
 }
 
 void MyVectorRealloc(MyVector* vector) {
