@@ -11,7 +11,7 @@ int FileOutput(const char* output_file_name, char** text, size_t len) {
     FILE* output_file = fopen(output_file_name, "w");
 
     if (output_file == NULL) {
-        printf("Не удалось открыть файл: %s\n", output_file_name);
+        fprintf(stderr, "Не удалось открыть файл: %s\n", output_file_name);
         return 0;
     }
 
