@@ -4,7 +4,6 @@
 
 void MyVectorInit(MyVector* vector, size_t capacity) {
     assert(vector != NULL);
-    assert(capacity != 0);
 
     vector->capacity = capacity >= MIN_CAPACITY ? capacity : MIN_CAPACITY;
 
