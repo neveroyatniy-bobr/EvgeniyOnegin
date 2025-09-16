@@ -7,7 +7,7 @@
 #include "MyStringFunctions.h"
 
 void* VoidPtrMove(void* ptr, size_t n, size_t size) {
-    assert(size != NULL);
+    assert(size != 0);
 
     return (void*)((size_t)ptr + n * size);
 }
@@ -79,8 +79,8 @@ int str_comp(const void* val1, const void* val2) {
     assert(val1 != 0);
     assert(val2 != 0);
 
-    char* str1 = *((char**)val1);
-    char* str2 = *((char**)val2);
+    const char* str1 = *(const_cast<char**>((const char* const*)val1));
+    const char* str2 = *(const_cast<char**>((const char* const*)val2));
 
     int len1 = (int)MyStrLen(str1);
     int len2 = (int)MyStrLen(str2);
@@ -96,7 +96,7 @@ int str_comp(const void* val1, const void* val2) {
         str2--;
     }
 
-    if (str1 == str1_start xor str2 == str2_start) {
+    if ((str1 == str1_start) ^ (str2 == str2_start)) {
         if (str1 == str1_start) {
             return -1;
         }
