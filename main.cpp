@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
     if (len == 0) { return 1; }
     printf("Parsed!\n");
 
-    MyQSort(text, len, sizeof(text[0]), str_comp);
+    MyQSort(text, len, sizeof(text[0]), StrRyphmCmp);
     printf("Sorted!\n");
 
     FileOutput(output_file_name, text, len);

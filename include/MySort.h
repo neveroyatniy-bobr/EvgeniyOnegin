@@ -24,12 +24,12 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp);
 /// @param val1 val1
 /// @param val2 val2
 /// @return -, если val1 < val2, 0, если val1 == val2, иначе +
-int int_comp(const void* val1, const void* val2);
+int IntCmp(const void* val1, const void* val2);
 
 /// @brief Компаратор для строк
 /// @param val1 val1
 /// @param val2 val2
 /// @return -, если val1 < val2, 0, если val1 == val2, иначе +
-int str_comp(const void* val1, const void* val2);
+int StrRyphmCmp(const void* val1, const void* val2);
 
 #endif // MY_SORT_H_

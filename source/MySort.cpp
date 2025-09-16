@@ -3,6 +3,7 @@
 #include <memory.h>
 #include <stdio.h>
 #include <assert.h>
+#include <ctype.h>
 
 #include "MyStringFunctions.h"
 
@@ -20,7 +21,7 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
     if (len == 1) {
         return;
     }
-    
+
     size_t first_half_len = len / 2;
     size_t second_half_len = len - first_half_len;
 
@@ -67,14 +68,59 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
     free(start_merge_array);
 }
 
-int int_comp(const void* val1, const void* val2) {
+int IntCmp(const void* val1, const void* val2) {
     assert(val1 != 0);
     assert(val2 != 0);
 
     return *((const int*)val1) - *((const int*)val2);
 }
 
-int str_comp(const void* val1, const void* val2) {
+int StrRyphmCmp(const void* val1, const void* val2) {
+    assert(val1 != 0);
+    assert(val2 != 0);
+
+    const char* str1 = *(const_cast<char**>((const char* const*)val1));
+    const char* str2 = *(const_cast<char**>((const char* const*)val2));
+
+    int len1 = (int)MyStrLen(str1);
+    int len2 = (int)MyStrLen(str2);
+
+    const char* str1_start = str1;
+    const char* str2_start = str2;
+
+    str1 = str1 + len1;
+    str2 = str2 + len2;
+
+    while (!isalpha(*str1) && str1 != str1_start) {
+        str1--;
+    }
+    while (!isalpha(*str2) && str2 != str2_start) {
+        str2--;
+    }
+
+    while (*str1 == *str2 && str1 != str1_start  && str2 != str2_start) {
+        str1--;
+        str2--;
+    }
+
+    if ((str1 == str1_start) ^ (str2 == str2_start)) {
+        if (str1 == str1_start) {
+            return -1;
+        }
+        else {
+            return 1;
+        }
+    }
+    
+    int signed_ans = *str1 - *str2;
+    int sign = (signed_ans == 0) 
+                    ? 0 
+                    : signed_ans / abs(signed_ans);
+    
+    return sign;
+}
+
+int StrReverceCmp(const void* val1, const void* val2) {
     assert(val1 != 0);
     assert(val2 != 0);
 
