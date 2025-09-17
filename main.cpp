@@ -38,7 +38,6 @@ int main(int argc, char** argv) {
         }
     }
     
-
     size_t len = TextParse(&text, inoutput_file_name);
     if (len == 0) { return 1; }
     printf("Parsed!\n");
