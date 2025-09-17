@@ -14,4 +14,9 @@ size_t TextParse(char*** text, const char* input_file_name);
 /// @param len Количество строк
 void MemoryFree(char** text, size_t len);
 
+/// @brief Вычисляет размер файла
+/// @param file_name Имя файла
+/// @return Размер файла в байтах
+size_t FileSize(const char* file_name);
+
 #endif // TEXT_PARSER_H_
