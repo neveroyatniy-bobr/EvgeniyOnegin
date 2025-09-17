@@ -4,10 +4,12 @@
 #include <assert.h>
 #include <errno.h>
 
-int FileOutput(const char* output_file_name, char** text, size_t len) {
+#include "Text.h"
+
+int FileOutput(const char* output_file_name, Text text) {
     assert(output_file_name != NULL);
-    assert(text != NULL);
-    assert(len != 0);
+    assert(text.data != NULL);
+    assert(text.size != 0);
 
     FILE* output_file = fopen(output_file_name, "w");
     if (output_file == NULL) {
@@ -16,9 +18,9 @@ int FileOutput(const char* output_file_name, char** text, size_t len) {
         return 0;
     }
 
-    for (size_t i = 0; i < len; i++) {
-        if (text[i] != NULL) {
-            fprintf(output_file, "%s\n", text[i]);
+    for (size_t i = 0; i < text.size; i++) {
+        if (text.data[i] != NULL) {
+            fprintf(output_file, "%s\n", text.data[i]);
         }
     }
 

@@ -4,28 +4,51 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <sys/stat.h>
-#include <time.h>
+#include <string.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 #include "MyStringFunctions.h"
 #include "MyVector.h"
+#include "Text.h"
 
 // FIXME Узнать как номально сделать
 char* text_buffer_start_ptr = NULL;
 
-size_t TextParse(char*** text_ptr, const char* input_file_name) {
-    assert(text_ptr != NULL);
+void TextParse(Text* text, const char* input_file_name) {
+    assert(text != NULL);
     assert(input_file_name != NULL);
+
+    // FIXME Использовать read() а не fread()
+
+    /*
+    int fd = open(input_file_name, O_RDONLY);
+
+    if (fd == -1) {
+        fprintf(stderr, "Не удалось открыть файл: %s. ", input_file_name);
+        perror(NULL);
+        return;
+    }
+
+    char* text_buffer = (char*)calloc(file_size + 1, 1);
+    text_buffer_start_ptr = text_buffer;
     
-    size_t file_size = FileSize(input_file_name);
+    ssize_t true_file_size = read(fd, text_buffer, file_size);
+    text_buffer[true_file_size] = '\0';
+
+    close(fd);
+    */
 
     FILE* input_file = fopen(input_file_name, "r");
 
     if (input_file == NULL) {
         fprintf(stderr, "Не удалось открыть файл: %s. ", input_file_name);
         perror(NULL);
-        return 0;
+        return;
     }
 
+    
+    size_t file_size = FileSize(input_file);
     char* text_buffer = (char*)calloc(file_size + 1, 1);
     text_buffer_start_ptr = text_buffer;
     
@@ -37,32 +60,51 @@ size_t TextParse(char*** text_ptr, const char* input_file_name) {
     MyVector text_vec = {};
     MyVectorInit(&text_vec, 16);
 
-    MyVectorAdd(&text_vec, text_buffer);
+    // FIXME Использовать strchr()
+
+    char* current_line_ptr = text_buffer;
+    MyVectorAdd(&text_vec, current_line_ptr);
+
+    while (true) {
+        current_line_ptr = strchr(current_line_ptr + 1, '\n');
+        // printf("\n\n%p\n\n", current_line_ptr);
+        if (current_line_ptr != NULL) {
+            MyVectorAdd(&text_vec, current_line_ptr + 1);
+            *current_line_ptr = '\0';
+        }
+        else {
+            // printf("break\n");
+            break;
+        }
+    } 
+
+    /*
     for (size_t i = 0; i < true_file_size; i++) {
         if (text_buffer[i] == '\n') {
             text_buffer[i] = '\0';
             MyVectorAdd(&text_vec, text_buffer + (i + 1));
         }
     }
+    */
 
-    *text_ptr = text_vec.data;
+    text->data = text_vec.data;
 
-    return text_vec.size;
+    text->size = text_vec.size;
 }
 
-void MemoryFree(char** text, size_t len) {
-    assert(text != NULL);
-    assert(len != 0);
+void MemoryFree(Text text) {
+    assert(text.data != NULL);
+    assert(text.size != 0);
 
     free(text_buffer_start_ptr);
 
-    free(text);
+    free(text.data);
 }
 
-size_t FileSize(const char* file_name) {
+size_t FileSize(FILE* file) {
     struct stat stats = {};
 
-    if (stat(file_name, &stats) != 0) {
+    if (fstat(fileno(file), &stats) != 0) {
         fprintf(stderr, "Не удалось прочитать статистику файла\n");
         return 0;
     }
