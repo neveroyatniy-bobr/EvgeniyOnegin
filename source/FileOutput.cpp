@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <errno.h>
+#include <string.h>
 
 #include "Text.h"
 
@@ -13,8 +14,7 @@ int FileOutput(const char* output_file_name, Text text) {
 
     FILE* output_file = fopen(output_file_name, "w");
     if (output_file == NULL) {
-        fprintf(stderr, "Не удалось открыть файл: %s. ", output_file_name);
-        perror(NULL);
+        fprintf(stderr, "Не удалось открыть файл: %s. %s", output_file_name, strerror(errno));
         return 0;
     }
 

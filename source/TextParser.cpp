@@ -7,6 +7,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <errno.h>
 
 #include "MyStringFunctions.h"
 #include "MyVector.h"
@@ -42,7 +43,7 @@ void TextParse(Text* text, const char* input_file_name) {
     FILE* input_file = fopen(input_file_name, "r");
 
     if (input_file == NULL) {
-        fprintf(stderr, "Не удалось открыть файл: %s. ", input_file_name);
+        fprintf(stderr, "Не удалось открыть файл: %s. %s", input_file_name, strerror(errno));
         perror(NULL);
         return;
     }
@@ -105,7 +106,7 @@ size_t FileSize(FILE* file) {
     struct stat stats = {};
 
     if (fstat(fileno(file), &stats) != 0) {
-        fprintf(stderr, "Не удалось прочитать статистику файла\n");
+        fprintf(stderr, "Не удалось прочитать статистику файла\n", strerror(errno));
         return 0;
     }
 
