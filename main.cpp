@@ -17,24 +17,24 @@ int main(int argc, char** argv) {
         switch (opt)
         {
             case 'f':
-            input_file_name = optarg;
-            break;
+                input_file_name = optarg;
+                break;
             
             case 'h':
-            printf("--help(-h) - Выводит список опций\n");
-            printf("--file(-f) - Позволяет заменить входной файл, требует аргумент с путем к файлу\n");
-            return 0;
-            break;
+                printf("--help(-h) - Выводит список опций\n");
+                printf("--file(-f) - Позволяет заменить входной файл, требует аргумент с путем к файлу\n");
+                return 0;
+                break;
             
             case '?':
-            fprintf(stderr, "Неизвестная опция или пропущен аргумент\n");
-            return 1;
-            break;
+                fprintf(stderr, "Неизвестная опция или пропущен аргумент\n");
+                return 1;
+                break;
             
             default:
-            fprintf(stderr, "Не обработанный случай аргументов командной строки\n");
-            return 1;
-            break;
+                fprintf(stderr, "Не обработанный случай аргументов командной строки\n");
+                return 1;
+                break;
         }
     }
     
