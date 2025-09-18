@@ -44,7 +44,6 @@ void TextParse(Text* text, const char* input_file_name) {
 
     if (input_file == NULL) {
         fprintf(stderr, "Не удалось открыть файл: %s. %s", input_file_name, strerror(errno));
-        perror(NULL);
         return;
     }
 
@@ -106,7 +105,7 @@ size_t FileSize(FILE* file) {
     struct stat stats = {};
 
     if (fstat(fileno(file), &stats) != 0) {
-        fprintf(stderr, "Не удалось прочитать статистику файла\n", strerror(errno));
+        fprintf(stderr, "Не удалось прочитать статистику файла. %s\n", strerror(errno));
         return 0;
     }
 
