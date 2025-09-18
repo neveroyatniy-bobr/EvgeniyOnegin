@@ -28,7 +28,7 @@ RESET = "\e[0m"
 MD = mkdir
 RM = rm
 
-.PHONY : All BuildAndRun Build Run Doxygen CommitWarning CreateBuildDir Clear
+.PHONY : All BuildAndRun Build Run Doxygen CommitWarning CreateBuildDir Clean
 
 All: Build
 
@@ -51,7 +51,7 @@ Run:
 CreateBuildDir:
 	@$(MD) -p $(OBJ_PREF)
 
-Clear:
+Clean:
 	@$(RM) -rf $(OBJ_PREF)
 
 Doxygen:
