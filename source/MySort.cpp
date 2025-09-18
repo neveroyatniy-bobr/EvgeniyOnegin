@@ -104,12 +104,7 @@ int StrRyphmCmp(const void* val1, const void* val2) {
     }
 
     if ((str1 == str1_start) ^ (str2 == str2_start)) {
-        if (str1 == str1_start) {
-            return -1;
-        }
-        else {
-            return 1;
-        }
+        return str1 == str1_start ? -1 : 1;
     }
     
     int signed_ans = *str1 - *str2;
@@ -142,12 +137,7 @@ int StrReverceCmp(const void* val1, const void* val2) {
     }
 
     if ((str1 == str1_start) ^ (str2 == str2_start)) {
-        if (str1 == str1_start) {
-            return -1;
-        }
-        else {
-            return 1;
-        }
+        return str1 == str1_start ? -1 : 1;
     }
     
     int signed_ans = *str1 - *str2;
