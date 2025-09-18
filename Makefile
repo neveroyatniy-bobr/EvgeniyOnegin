@@ -17,11 +17,16 @@ OBJ = $(patsubst $(SRC_PREF)%.cpp, $(OBJ_PREF)%.o, $(SRC))
 RED = "\e[31m"
 RESET = "\e[0m"
 
+MD = mkdir
+RM = rm
+
+.PHONY : All BuildAndRun Build Run Doxygen CommitWarning CreateBuildDir Clear
+
 All: Build
 
 BuildAndRun: Build Run
 
-Build: $(MY_PROGRAM) Doxygen CommitWarning
+Build: CreateBuildDir $(MY_PROGRAM) Doxygen CommitWarning
 
 ifeq ($(BUILD_TYPE), RELEASE)
 $(MY_PROGRAM): $(OBJ) $(OBJ_PREF)main.o
@@ -50,6 +55,12 @@ endif
 
 Run:
 	@./$(MY_PROGRAM)
+
+CreateBuildDir:
+	@$(MD) $(OBJ_PREF)
+
+Clear:
+	@$(RM) -rf $(OBJ_PREF)
 
 Doxygen:
 	@doxygen docs/Doxyfile 1>/dev/null
