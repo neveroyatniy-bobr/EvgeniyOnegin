@@ -79,8 +79,8 @@ int StrRyphmCmp(const void* val1, const void* val2) {
     assert(val1 != 0);
     assert(val2 != 0);
 
-    const char* str1 = *(const_cast<char**>((const char* const*)val1));
-    const char* str2 = *(const_cast<char**>((const char* const*)val2));
+    const char* str1 = *(const char* const*)val1;
+    const char* str2 = *(const char* const*)val2;
 
     int len1 = (int)MyStrLen(str1);
     int len2 = (int)MyStrLen(str2);
