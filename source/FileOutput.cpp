@@ -19,8 +19,8 @@ int FileOutput(const char* output_file_name, Text text) {
     }
 
     for (size_t i = 0; i < text.size; i++) {
-        if (text.data[i] != NULL) {
-            fprintf(output_file, "%s\n", text.data[i]);
+        if (text.data[i].data != NULL) {
+            fprintf(output_file, "%s\n", text.data[i].data);
         }
     }
 

@@ -9,7 +9,6 @@
 #include <unistd.h>
 #include <errno.h>
 
-#include "MyStringFunctions.h"
 #include "MyVector.h"
 #include "Text.h"
 
@@ -59,33 +58,24 @@ void TextParse(Text* text, const char* input_file_name) {
         
     MyVector text_vec = {};
     MyVectorInit(&text_vec, 16);
-
-    // FIXME Использовать strchr()
-
+    
     char* current_line_ptr = text_buffer;
-    MyVectorAdd(&text_vec, current_line_ptr);
+    char* next_line_ptr = text_buffer;
 
-    while (true) {
-        current_line_ptr = strchr(current_line_ptr + 1, '\n');
-        // printf("\n\n%p\n\n", current_line_ptr);
-        if (current_line_ptr != NULL) {
-            MyVectorAdd(&text_vec, current_line_ptr + 1);
-            *current_line_ptr = '\0';
-        }
-        else {
-            // printf("break\n");
-            break;
-        }
-    } 
+    while (next_line_ptr != 0 && *(next_line_ptr) != '\0') {
+        current_line_ptr = next_line_ptr;
+        next_line_ptr = strchr(current_line_ptr, '\n') + 1;
 
-    /*
-    for (size_t i = 0; i < true_file_size; i++) {
-        if (text_buffer[i] == '\n') {
-            text_buffer[i] = '\0';
-            MyVectorAdd(&text_vec, text_buffer + (i + 1));
+        if (current_line_ptr != text_buffer) {
+            *(next_line_ptr - 1) = '\0';
+        }
+
+        Line current_line = { .data = current_line_ptr, .size = (size_t)(next_line_ptr - current_line_ptr - 1) };
+        
+        if (current_line.size > 0) {
+            MyVectorAdd(&text_vec, current_line);
         }
     }
-    */
 
     text->data = text_vec.data;
 

@@ -3,8 +3,14 @@
 
 #include <stdlib.h>
 
+struct Line
+{
+    char* data;
+    size_t size;
+};
+
 struct Text {
-    char** data;
+    Line* data;
     size_t size;
 };
 

@@ -3,7 +3,6 @@
 
 #include "MySort.h"
 #include "TextParser.h"
-#include "MyStringFunctions.h"
 #include "FileOutput.h"
 #include "Options.h"
 #include "Text.h"

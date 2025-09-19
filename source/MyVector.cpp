@@ -10,13 +10,13 @@ void MyVectorInit(MyVector* vector, size_t capacity) {
 
     vector->size = 0;
 
-    vector->data = (char**)calloc(capacity, sizeof(char*));
+    vector->data = (Line*)calloc(capacity, sizeof(Line));
 }
 
 void MyVectorRealloc(MyVector* vector) {
     assert(vector != NULL);
 
-    char** data = (char**)realloc(vector->data, vector->capacity * GROW_FACTOR * sizeof(*(vector->data)));
+    Line* data = (Line*)realloc(vector->data, vector->capacity * GROW_FACTOR * sizeof(*(vector->data)));
     if (data != NULL) {
         vector->data = data;
     }
@@ -34,9 +34,8 @@ void MyVectorFree(MyVector* vector) {
     vector->data = NULL;
 }
 
-void MyVectorAdd(MyVector* vector, char* elem) {
+void MyVectorAdd(MyVector* vector, Line elem) {
     assert(vector != NULL);
-    assert(elem != NULL);
 
     if (vector->size == vector->capacity) {
         MyVectorRealloc(vector);

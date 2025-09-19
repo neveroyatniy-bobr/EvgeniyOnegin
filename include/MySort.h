@@ -38,4 +38,6 @@ int StrRyphmCmp(const void* val1, const void* val2);
 /// @return -, если val1 < val2, 0, если val1 == val2, иначе +
 int StrReverceCmp(const void* val1, const void* val2);
 
+int TestCmp(const void* val1, const void* val2);
+
 #endif // MY_SORT_H_

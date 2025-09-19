@@ -6,6 +6,7 @@
 #include <ctype.h>
 
 #include "MyStringFunctions.h"
+#include "Text.h"
 
 void* VoidPtrMove(void* ptr, size_t n, size_t size) {
     assert(size != 0);
@@ -64,7 +65,6 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
 
     memcpy(array, start_merge_array, len * size);
 
-    
     free(start_merge_array);
 }
 
@@ -75,15 +75,16 @@ int IntCmp(const void* val1, const void* val2) {
     return *((const int*)val1) - *((const int*)val2);
 }
 
+
 int StrRyphmCmp(const void* val1, const void* val2) {
     assert(val1 != 0);
     assert(val2 != 0);
 
-    const char* str1 = *(const char* const*)val1;
-    const char* str2 = *(const char* const*)val2;
+    const char* str1 = (*(const Line*)val1).data;
+    const char* str2 = (*(const Line*)val2).data;
 
-    int len1 = (int)MyStrLen(str1);
-    int len2 = (int)MyStrLen(str2);
+    int len1 = (int)((*(const Line*)val1).size);
+    int len2 = (int)((*(const Line*)val2).size);
 
     const char* str1_start = str1;
     const char* str2_start = str2;
@@ -98,7 +99,7 @@ int StrRyphmCmp(const void* val1, const void* val2) {
         str2--;
     }
 
-    while (*str1 == *str2 && str1 != str1_start  && str2 != str2_start) {
+    while (str1 != str1_start  && str2 != str2_start && *str1 == *str2) {
         str1--;
         str2--;
     }
@@ -111,7 +112,7 @@ int StrRyphmCmp(const void* val1, const void* val2) {
     int sign = (signed_ans == 0) 
                     ? 0 
                     : signed_ans / abs(signed_ans);
-    
+
     return sign;
 }
 
@@ -119,11 +120,11 @@ int StrReverceCmp(const void* val1, const void* val2) {
     assert(val1 != 0);
     assert(val2 != 0);
 
-    const char* str1 = *(const char* const*)val1;
-    const char* str2 = *(const char* const*)val2;
+    const char* str1 = (*(const Line*)val1).data;
+    const char* str2 = (*(const Line*)val2).data;
 
-    int len1 = (int)MyStrLen(str1);
-    int len2 = (int)MyStrLen(str2);
+    int len1 = (int)((*(const Line*)val1).size);
+    int len2 = (int)((*(const Line*)val2).size);
 
     const char* str1_start = str1;
     const char* str2_start = str2;
@@ -131,7 +132,7 @@ int StrReverceCmp(const void* val1, const void* val2) {
     str1 = str1 + len1;
     str2 = str2 + len2;
 
-    while (*str1 == *str2 && str1 != str1_start  && str2 != str2_start) {
+    while (str1 != str1_start  && str2 != str2_start && *str1 == *str2) {
         str1--;
         str2--;
     }
@@ -144,6 +145,16 @@ int StrReverceCmp(const void* val1, const void* val2) {
     int sign = (signed_ans == 0) 
                     ? 0 
                     : signed_ans / abs(signed_ans);
-    
+
     return sign;
+}
+
+int TestCmp(const void* val1, const void* val2) {
+    assert(val1 != 0);
+    assert(val2 != 0);
+
+    int len1 = (int)((const Line*)val1)->size;
+    int len2 = (int)((const Line*)val2)->size;
+
+    return len1 - len2;
 }
