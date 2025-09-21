@@ -11,13 +11,11 @@
 
 #include "MyVector.h"
 #include "Text.h"
+#include "Settings.h"
 
-// FIXME Узнать как номально сделать, дОБАВИТЬ В СТРУКТУРУ Texts
-char* text_buffer_start_ptr = NULL;
-
-void TextParse(Text* text, const char* input_file_name) {
+void TextParse(Text* text, Settings settings) {
     assert(text != NULL);
-    assert(input_file_name != NULL);
+    assert(settings.input_file_name != NULL);
 
     // FIXME Использовать read() а не fread()
 
@@ -39,10 +37,10 @@ void TextParse(Text* text, const char* input_file_name) {
     close(fd);
     */
 
-    FILE* input_file = fopen(input_file_name, "r");
+    FILE* input_file = fopen(settings.input_file_name, "r");
 
     if (input_file == NULL) {
-        fprintf(stderr, "Не удалось открыть файл: %s. %s", input_file_name, strerror(errno));
+        fprintf(stderr, "Не удалось открыть файл: %s. %s\n", settings.input_file_name, strerror(errno));
         return;
     }
 

@@ -5,11 +5,12 @@
 #include <stdio.h>
 
 #include "Text.h"
+#include "Settings.h"
 
 /// @brief Парсит входной файл в массив строк. Обязательно Освободить память выделенную для указателей на элементы и сами элементы
 /// @param text Указатель на структуру Text с текстом
-/// @param input_file_name Путь к входному файлу
-void TextParse(Text* text, const char* input_file_name);
+/// @param settings Настройки программы
+void TextParse(Text* text, Settings settings);
 
 /// @brief Освобождает память, выделенную под текст.
 /// @param text Текст

@@ -4,11 +4,12 @@
 #include <stdlib.h>
 
 #include "Text.h"
+#include "Settings.h"
 
 /// @brief Выоводит содержимое Текста в выходной файл
-/// @param output_file_name Путь к выходному файлу
+/// @param settings Настройки прораммы
 /// @param text Текст
 /// @return 1, если не удалось открыть файл, 0 в случае успешного считывания
-int FileOutput(const char* output_file_name, Text text);
+int FileOutput(Text text, Settings settings);
 
 #endif // FILE_OUTPUT_

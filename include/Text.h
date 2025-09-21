@@ -3,12 +3,14 @@
 
 #include <stdlib.h>
 
+/// @brief Хранит линию из текста
 struct Line
 {
     char* data;
     size_t size;
 };
 
+/// @brief Хранит текст
 struct Text {
     Line* data;
     size_t size;

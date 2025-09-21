@@ -6,15 +6,16 @@
 #include <string.h>
 
 #include "Text.h"
+#include "Settings.h"
 
-int FileOutput(const char* output_file_name, Text text) {
-    assert(output_file_name != NULL);
+int FileOutput(Text text, Settings settings) {
+    assert(settings.output_file_name != NULL);
     assert(text.data != NULL);
     assert(text.size != 0);
 
-    FILE* output_file = fopen(output_file_name, "w");
+    FILE* output_file = fopen(settings.output_file_name, "w");
     if (output_file == NULL) {
-        fprintf(stderr, "Не удалось открыть файл: %s. %s", output_file_name, strerror(errno));
+        fprintf(stderr, "Не удалось открыть файл: %s. %s\n", settings.output_file_name, strerror(errno));
         return 0;
     }
 
