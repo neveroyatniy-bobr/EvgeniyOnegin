@@ -12,7 +12,7 @@
 #include "MyVector.h"
 #include "Text.h"
 
-// FIXME Узнать как номально сделать
+// FIXME Узнать как номально сделать, дОБАВИТЬ В СТРУКТУРУ Texts
 char* text_buffer_start_ptr = NULL;
 
 void TextParse(Text* text, const char* input_file_name) {
@@ -49,7 +49,7 @@ void TextParse(Text* text, const char* input_file_name) {
     
     size_t file_size = FileSize(input_file);
     char* text_buffer = (char*)calloc(file_size + 1, 1);
-    text_buffer_start_ptr = text_buffer;
+    text->buffer_start_ptr = text_buffer;
     
     size_t true_file_size = fread(text_buffer, 1, file_size, input_file);
     text_buffer[true_file_size] = '\0';
@@ -80,13 +80,15 @@ void TextParse(Text* text, const char* input_file_name) {
     text->data = text_vec.data;
 
     text->size = text_vec.size;
+
+
 }
 
 void MemoryFree(Text text) {
     assert(text.data != NULL);
     assert(text.size != 0);
 
-    free(text_buffer_start_ptr);
+    free(text.buffer_start_ptr);
 
     free(text.data);
 }

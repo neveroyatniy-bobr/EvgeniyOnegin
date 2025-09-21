@@ -12,6 +12,7 @@ struct Line
 struct Text {
     Line* data;
     size_t size;
+    char* buffer_start_ptr;
 };
 
 #endif // TEST_H_
