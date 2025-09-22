@@ -87,19 +87,7 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
     assert(len != 0);
     assert(size != 0);
 
-    if (len == 0) { return; }
-    else if (len == 1) { return; }
-    else if (len == 2) {
-        void* temp = calloc(1, size);
-
-        if (comp((const void*)array, (const void*)(VoidPtrMove(array, 1, size))) > 0) {
-            MySwap(array, VoidPtrMove(array, 1, size), size);
-        }
-
-        free(temp);
-
-        return;
-    }
+    if (len == 1) { return; }
 
     void* sep = VoidPtrMove(array, (ssize_t)len / 2, size);
     void* start_ptr = array;
