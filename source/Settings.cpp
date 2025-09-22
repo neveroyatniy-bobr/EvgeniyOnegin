@@ -8,11 +8,12 @@
 void SettingsInit(Settings* settings) {
     settings->input_file_name = "./data/EngEvgeniyOnegin.txt";
     settings->output_file_name = "./out/output.txt";
+    settings->is_speedtest = false;
 }
 
 int SettingsFromCmdOpt(Settings* settings, int argc, char** argv) {
     int opt = 0;
-    while ((opt = getopt_long(argc, argv, "f:h", long_options, NULL)) != -1) {
+    while ((opt = getopt_long(argc, argv, "f:sh", long_options, NULL)) != -1) {
         switch (opt)
         {
             case 'f':
@@ -23,6 +24,10 @@ int SettingsFromCmdOpt(Settings* settings, int argc, char** argv) {
                 printf("--help(-h) - Выводит список опций\n");
                 printf("--file(-f) - Позволяет заменить входной файл, требует аргумент с путем к файлу\n");
                 return 1;
+                break;
+
+            case 's':
+                settings->is_speedtest = true;
                 break;
             
             case '?':

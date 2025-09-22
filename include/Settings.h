@@ -4,6 +4,7 @@
 struct Settings {
     const char* input_file_name;
     const char* output_file_name;
+    bool is_speedtest;
 };
 
 void SettingsInit(Settings* settings);

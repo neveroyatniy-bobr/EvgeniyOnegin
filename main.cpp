@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 #include "MySort.h"
 #include "TextParser.h"
@@ -8,6 +9,8 @@
 #include "Settings.h"
 
 int main(int argc, char** argv) {
+    clock_t start_time = clock();
+
     Settings settings = {};
     SettingsInit(&settings);
     
@@ -18,16 +21,20 @@ int main(int argc, char** argv) {
     Text text = {};
     TextParse(&text, settings);
     if (text.size == 0) { return 1; }
-    printf("Parsed!\n");
+    if (!settings.is_speedtest) printf("Parsed!\n");
 
     MyQSort(text.data, text.size, sizeof(text.data[0]), StrRyphmCmp);
-    printf("Sorted!\n");
+    if (!settings.is_speedtest) printf("Sorted!\n");
 
     FileOutput(text, settings);
-    printf("Puted!\n");
+    if (!settings.is_speedtest) printf("Puted!\n");
 
     MemoryFree(text);
-    printf("Memory free!\n");
+    if (!settings.is_speedtest) printf("Memory free!\n");
+    
+    clock_t end_time = clock();
+
+    if (settings.is_speedtest) printf("Program running time: %ld ms\n", (end_time - start_time)/1000);
 
     return 0;
 }
