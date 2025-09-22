@@ -8,8 +8,6 @@
 #include "Settings.h"
 
 int main(int argc, char** argv) {
-    // FIXME Добавить структуру settings, Сделать стандартный конструктор который будет устанавливать настройки по умолчанию, Сделать Функции На основе аргументов командной строки
-    
     Settings settings = {};
     SettingsInit(&settings);
     

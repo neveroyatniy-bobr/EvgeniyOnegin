@@ -8,13 +8,33 @@
 #include "MyStringFunctions.h"
 #include "Text.h"
 
-void* VoidPtrMove(void* ptr, size_t n, size_t size) {
+void* VoidPtrMove(void* ptr, ssize_t n, size_t size) {
     assert(size != 0);
 
-    return (void*)((size_t)ptr + n * size);
+    return (void*)((ssize_t)ptr + n * (ssize_t)size);
 }
 
-void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
+void MySwap(void* a, void* b, void* temp, size_t size) {
+    assert(a != NULL);
+    assert(b != NULL);
+
+    bool is_calloced = false;
+
+    if (temp == NULL) {
+        temp = calloc(1, size);
+        is_calloced = true;
+    }
+
+    memcpy(temp, b, size);
+    memcpy(b, a, size);
+    memcpy(a, temp, size);
+
+    if (is_calloced) {
+        free(temp);
+    }
+}
+
+void MyMergeSort(void* array, size_t len, size_t size, Comparator comp) {
     assert(array != NULL);
     assert(len != 0);
     assert(size != 0);
@@ -27,13 +47,13 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
     size_t second_half_len = len - first_half_len;
 
     void* first_half = array;
-    void* second_half = VoidPtrMove(array, first_half_len, size);
+    void* second_half = VoidPtrMove(array, (ssize_t)first_half_len, size);
 
-    void* first_half_end = VoidPtrMove(first_half, first_half_len, size);
-    void* second_half_end = VoidPtrMove(second_half, second_half_len, size);
+    void* first_half_end = VoidPtrMove(first_half, (ssize_t)first_half_len, size);
+    void* second_half_end = VoidPtrMove(second_half, (ssize_t)second_half_len, size);
 
-    MyQSort(first_half, first_half_len, size, comp);
-    MyQSort(second_half, second_half_len, size, comp);
+    MyMergeSort(first_half, first_half_len, size, comp);
+    MyMergeSort(second_half, second_half_len, size, comp);
 
     void* merge_array = calloc(len, size);
     void* const start_merge_array = merge_array;
@@ -66,6 +86,54 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
     memcpy(array, start_merge_array, len * size);
 
     free(start_merge_array);
+}
+
+void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
+    assert(array != NULL);
+    assert(len != 0);
+    assert(size != 0);
+
+    if (len == 0) { return; }
+    else if (len == 1) { return; }
+    else if (len == 2) {
+        void* temp = calloc(1, size);
+
+        if (comp((const void*)array, (const void*)(VoidPtrMove(array, 1, size))) > 0) {
+            MySwap(array, VoidPtrMove(array, 1, size), temp, size);
+        }
+
+        free(temp);
+
+        return;
+    }
+
+    void* temp = calloc(1, size);
+
+    void* sep = VoidPtrMove(array, (ssize_t)len / 2, size);
+    void* start_ptr = array;
+    void* end_ptr = VoidPtrMove(array, (ssize_t)len - 1, size);
+
+    while (start_ptr != end_ptr) {
+        while (comp(start_ptr, sep) < 0 && start_ptr != end_ptr) {
+            start_ptr = VoidPtrMove(start_ptr, 1, size);
+        }
+        while (comp(end_ptr, sep) >= 0 && start_ptr != end_ptr) {
+            end_ptr = VoidPtrMove(end_ptr, -1, size);
+        }
+
+        MySwap(start_ptr, end_ptr, temp, size);
+    }
+
+    free(temp);
+
+    size_t first_half_len = len / 2;
+    size_t second_half_len = len - first_half_len;
+
+    void* first_half = array;
+    void* second_half = VoidPtrMove(array, (ssize_t)first_half_len, size);
+
+    MyQSort(first_half, first_half_len, size, comp);
+    MyQSort(second_half, second_half_len, size, comp);
 }
 
 int IntCmp(const void* val1, const void* val2) {

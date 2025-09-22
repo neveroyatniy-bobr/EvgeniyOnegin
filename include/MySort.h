@@ -11,13 +11,17 @@ typedef int (*Comparator)(const void* val1, const void* val2);
 /// @param n n
 /// @param size Размер одного элемента в байтах
 /// @return Сдвинутый указатель
-void* VoidPtrMove(void* ptr, size_t n, size_t size);
+void* VoidPtrMove(void* ptr, ssize_t n, size_t size);
+
+void MySwap(void* a, void* b, void* temp, size_t size);
 
 /// @brief Сортирует массив используя компаратор
 /// @param array Массив
 /// @param len Количество элементов массива
 /// @param size Размер одного элемента массива в байтах
 /// @param comp Компаратор
+void MyMergeSort(void* array, size_t len, size_t size, Comparator comp);
+
 void MyQSort(void* array, size_t len, size_t size, Comparator comp);
 
 /// @brief Компаратор для интов
