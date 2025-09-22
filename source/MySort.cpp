@@ -14,23 +14,17 @@ void* VoidPtrMove(void* ptr, ssize_t n, size_t size) {
     return (void*)((ssize_t)ptr + n * (ssize_t)size);
 }
 
-void MySwap(void* a, void* b, void* temp, size_t size) {
+void MySwap(void* a, void* b, size_t size) {
     assert(a != NULL);
     assert(b != NULL);
+    assert(size != 0);
 
-    bool is_calloced = false;
-
-    if (temp == NULL) {
-        temp = calloc(1, size);
-        is_calloced = true;
-    }
-
-    memcpy(temp, b, size);
-    memcpy(b, a, size);
-    memcpy(a, temp, size);
-
-    if (is_calloced) {
-        free(temp);
+    char temp = 0;
+    
+    for (size_t byte_count = 0; byte_count < size; byte_count++) {
+        memcpy(&temp, VoidPtrMove(b, byte_count, 1), 1);
+        memcpy(VoidPtrMove(b, byte_count, 1), VoidPtrMove(a, byte_count, 1), 1);
+        memcpy(VoidPtrMove(a, byte_count, 1), &temp, 1);
     }
 }
 
@@ -99,15 +93,13 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
         void* temp = calloc(1, size);
 
         if (comp((const void*)array, (const void*)(VoidPtrMove(array, 1, size))) > 0) {
-            MySwap(array, VoidPtrMove(array, 1, size), temp, size);
+            MySwap(array, VoidPtrMove(array, 1, size), size);
         }
 
         free(temp);
 
         return;
     }
-
-    void* temp = calloc(1, size);
 
     void* sep = VoidPtrMove(array, (ssize_t)len / 2, size);
     void* start_ptr = array;
@@ -121,10 +113,8 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
             end_ptr = VoidPtrMove(end_ptr, -1, size);
         }
 
-        MySwap(start_ptr, end_ptr, temp, size);
+        MySwap(start_ptr, end_ptr, size);
     }
-
-    free(temp);
 
     size_t first_half_len = len / 2;
     size_t second_half_len = len - first_half_len;

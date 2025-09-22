@@ -13,7 +13,7 @@ typedef int (*Comparator)(const void* val1, const void* val2);
 /// @return Сдвинутый указатель
 void* VoidPtrMove(void* ptr, ssize_t n, size_t size);
 
-void MySwap(void* a, void* b, void* temp, size_t size);
+void MySwap(void* a, void* b, size_t size);
 
 /// @brief Сортирует массив используя компаратор
 /// @param array Массив
