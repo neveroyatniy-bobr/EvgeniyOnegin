@@ -22,9 +22,9 @@ void MySwap(void* a, void* b, size_t size) {
     char temp = 0;
     
     for (size_t byte_count = 0; byte_count < size; byte_count++) {
-        memcpy(&temp, VoidPtrMove(b, byte_count, 1), 1);
-        memcpy(VoidPtrMove(b, byte_count, 1), VoidPtrMove(a, byte_count, 1), 1);
-        memcpy(VoidPtrMove(a, byte_count, 1), &temp, 1);
+        memcpy(&temp, VoidPtrMove(b, (ssize_t)byte_count, 1), 1);
+        memcpy(VoidPtrMove(b, (ssize_t)byte_count, 1), VoidPtrMove(a, (ssize_t)byte_count, 1), 1);
+        memcpy(VoidPtrMove(a, (ssize_t)byte_count, 1), &temp, 1);
     }
 }
 
@@ -114,13 +114,20 @@ void MyQSort(void* array, size_t len, size_t size, Comparator comp) {
         }
 
         MySwap(start_ptr, end_ptr, size);
+
+        if (start_ptr == sep) {
+            sep = end_ptr;
+        }
+        else if (end_ptr == sep) {
+            sep = start_ptr;
+        }
     }
 
-    size_t first_half_len = len / 2;
+    size_t first_half_len = (size_t)((char*)sep - (char*)array) / size;
     size_t second_half_len = len - first_half_len;
 
     void* first_half = array;
-    void* second_half = VoidPtrMove(array, (ssize_t)first_half_len, size);
+    void* second_half = sep;
 
     MyQSort(first_half, first_half_len, size, comp);
     MyQSort(second_half, second_half_len, size, comp);
