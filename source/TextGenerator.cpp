@@ -23,7 +23,7 @@ int GenerateText(Settings settings) {
 
     for (size_t line_count = 0; line_count < settings.generate_text_size; line_count++) {
         for (size_t i = 0; i < LINE_SIZE; i++) {
-            char symbol = (char)('A' + rand() % ('a' - 'A' + 1));
+            char symbol = (char)('A' + rand() % ('z' - 'A' + 1));
             
             SymbolToFile(symbol, generated_file, &buffer);
         }
@@ -31,7 +31,6 @@ int GenerateText(Settings settings) {
     }
 
     fwrite(buffer.data, 1, buffer.size, generated_file);
-    BufferClear(&buffer);
 
     BufferMemoryFree(buffer);
 
