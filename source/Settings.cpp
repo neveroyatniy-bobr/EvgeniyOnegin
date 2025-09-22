@@ -26,6 +26,8 @@ int SettingsFromCmdOpt(Settings* settings, int argc, char** argv) {
             case 'h':
                 printf("--help(-h) - Выводит список опций\n");
                 printf("--file(-f) - Позволяет заменить входной файл, требует аргумент с путем к файлу\n");
+                printf("--speedtest(-s) - Выключает уведомления о выполнении блоков программы. Выводит время ее работы\n");
+                printf("--generatetext(-g) - Генерирует текст из определенного количества строк. В качестве аргкмента требует количество строк\n");
                 return 1;
                 break;
 
@@ -39,7 +41,7 @@ int SettingsFromCmdOpt(Settings* settings, int argc, char** argv) {
                 break;
             
             case '?':
-                fprintf(stderr, "Неизвестная опция или пропущен аргумент\n");
+                fprintf(stderr, "Неизвестная опция или пропущен аргумент\nНапишите --help для получения списка команд");
                 return 1;
                 break;
             
