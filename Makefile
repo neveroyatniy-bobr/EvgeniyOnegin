@@ -14,7 +14,7 @@ DEBUG_FLAGS = -ggdb3 -std=c++17 -O0 -Wall -Wextra -Weffc++ -Waggressive-loop-opt
 RELEASE_FLAGS = -O2 -D NDEBUG
 
 BUILD_TYPE ?= DEBUG
-ifeq (BUILD_TYPE, RELEASE)
+ifeq ($(BUILD_TYPE), RELEASE)
 	FLAGS = $(RELEASE_FLAGS)
 else
 	FLAGS = $(DEBUG_FLAGS)
@@ -34,7 +34,13 @@ All: Build
 
 BuildAndRun: Build Run
 
+ifeq ($(BUILD_TYPE), RELEASE)
 Build: CreateBuildDir $(MY_PROGRAM) Doxygen CommitWarning
+	@echo "RELEASE_BUILD\n"
+else
+Build: CreateBuildDir $(MY_PROGRAM) Doxygen CommitWarning
+	@echo "DEBUG_BUILD\n"
+endif
 
 $(MY_PROGRAM): $(OBJ) $(OBJ_PREF)main.o
 	@$(CXX) $^ -o $(MY_PROGRAM) $(FLAGS)
