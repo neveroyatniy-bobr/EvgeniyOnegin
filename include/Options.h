@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 /// @brief Хоанит имена опций
-static option long_options[] = {
+static const option long_options[] = {
     { .name = "file", .has_arg = required_argument, .flag = NULL, 'f' },
     { .name = "help", .has_arg = no_argument, .flag = NULL, 'h' }
 };
