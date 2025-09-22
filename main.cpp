@@ -7,6 +7,7 @@
 #include "Options.h"
 #include "Text.h"
 #include "Settings.h"
+#include "TextGenerator.h"
 
 int main(int argc, char** argv) {
     clock_t start_time = clock();
@@ -15,6 +16,11 @@ int main(int argc, char** argv) {
     SettingsInit(&settings);
     
     if (SettingsFromCmdOpt(&settings, argc, argv) != 0) {
+        return 0;
+    }
+
+    if (settings.is_generate_text) {
+        GenerateText(settings);
         return 0;
     }
     
@@ -34,7 +40,7 @@ int main(int argc, char** argv) {
     
     clock_t end_time = clock();
 
-    if (settings.is_speedtest) printf("Program running time: %ld ms\n", (end_time - start_time)/1000);
+    if (settings.is_speedtest) printf("Program running time: %lf ms\n", (double)(end_time - start_time) / 1000.0);
 
     return 0;
 }

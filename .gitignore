@@ -2,4 +2,5 @@ build/
 docs/html/
 .vscode/
 out/output.txt
+data/generated_text.txt
 *.exe
