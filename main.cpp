@@ -10,15 +10,13 @@
 #include "TextGenerator.h"
 
 int main(int argc, char** argv) {
-    clock_t start_time = clock();
-
     Settings settings = {};
     SettingsInit(&settings);
     
     if (SettingsFromCmdOpt(&settings, argc, argv) != 0) {
         return 0;
     }
-
+    
     if (settings.is_generate_text) {
         GenerateText(settings);
         return 0;
@@ -28,17 +26,20 @@ int main(int argc, char** argv) {
     TextParse(&text, settings);
     if (text.size == 0) { return 1; }
     if (!settings.is_speedtest) printf("Parsed!\n");
+    
+    clock_t start_time = clock();
+    
+    MyMergeSort(text.data, text.size, sizeof(text.data[0]), StrRyphmCmp);
 
-    MyQSort(text.data, text.size, sizeof(text.data[0]), StrRyphmCmp);
+    clock_t end_time = clock();
+
     if (!settings.is_speedtest) printf("Sorted!\n");
 
     FileOutput(text, settings);
     if (!settings.is_speedtest) printf("Puted!\n");
 
     MemoryFree(text);
-    if (!settings.is_speedtest) printf("Memory free!\n");
-    
-    clock_t end_time = clock();
+    if (!settings.is_speedtest) printf("Memory free!\n");    
 
     if (settings.is_speedtest) printf("Program running time: %lf ms\n", (double)(end_time - start_time) / 1000.0);
 
