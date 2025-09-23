@@ -17,29 +17,9 @@ void TextParse(Text* text, Settings settings) {
     assert(text != NULL);
     assert(settings.input_file_name != NULL);
 
-    // FIXME Использовать read() а не fread()
+    int input_file = open(settings.input_file_name, O_RDONLY);
 
-    /*
-    int fd = open(input_file_name, O_RDONLY);
-
-    if (fd == -1) {
-        fprintf(stderr, "Не удалось открыть файл: %s. ", input_file_name);
-        perror(NULL);
-        return;
-    }
-
-    char* text_buffer = (char*)calloc(file_size + 1, 1);
-    text_buffer_start_ptr = text_buffer;
-    
-    ssize_t true_file_size = read(fd, text_buffer, file_size);
-    text_buffer[true_file_size] = '\0';
-
-    close(fd);
-    */
-
-    FILE* input_file = fopen(settings.input_file_name, "r");
-
-    if (input_file == NULL) {
+    if (input_file == -1) {
         fprintf(stderr, "Не удалось открыть файл: %s. %s\n", settings.input_file_name, strerror(errno));
         return;
     }
@@ -49,10 +29,10 @@ void TextParse(Text* text, Settings settings) {
     char* text_buffer = (char*)calloc(file_size + 1, 1);
     text->buffer_start_ptr = text_buffer;
     
-    size_t true_file_size = fread(text_buffer, 1, file_size, input_file);
+    ssize_t true_file_size = read(input_file, text_buffer, file_size);
     text_buffer[true_file_size] = '\0';
     
-    fclose(input_file);
+    close(input_file);
         
     MyVector text_vec = {};
     MyVectorInit(&text_vec, 16);
@@ -91,10 +71,10 @@ void MemoryFree(Text text) {
     free(text.data);
 }
 
-size_t FileSize(FILE* file) {
+size_t FileSize(int file) {
     struct stat stats = {};
 
-    if (fstat(fileno(file), &stats) != 0) {
+    if (fstat(file, &stats) != 0) {
         fprintf(stderr, "Не удалось прочитать статистику файла. %s\n", strerror(errno));
         return 0;
     }

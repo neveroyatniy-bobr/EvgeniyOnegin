@@ -19,6 +19,6 @@ void MemoryFree(Text text);
 /// @brief Вычисляет размер файла
 /// @param file Указатель на файл
 /// @return Размер файла в байтах
-size_t FileSize(FILE* file);
+size_t FileSize(int file);
 
 #endif // TEXT_PARSER_H_
